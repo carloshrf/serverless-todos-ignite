@@ -6,6 +6,7 @@ export const handle: APIGatewayProxyHandler = async (event) => {
 
   const response = await document.query({
     TableName: 'todos',
+    IndexName: 'userId',
     KeyConditionExpression: 'user_id = :user_id',
     ExpressionAttributeValues: {
       ':user_id': user_id
